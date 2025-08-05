@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
 
 interface SudokuData {
@@ -17,7 +17,7 @@ function Sudoku({ onError }: SudokuProps) {
   const [loading, setLoading] = useState(false);
   const [showSolution, setShowSolution] = useState(false);
 
-  const fetchNewPuzzle = async () => {
+  const fetchNewPuzzle = useCallback(async () => {
     setLoading(true);
     onError(null);
 
@@ -39,11 +39,11 @@ function Sudoku({ onError }: SudokuProps) {
     } finally {
       setLoading(false);
     }
-  };
+  }, [onError]);
 
   useEffect(() => {
     fetchNewPuzzle();
-  }, []);
+  }, [fetchNewPuzzle]);
 
   const handleCellChange = (index: number, value: string) => {
     if (!sudokuData) return;

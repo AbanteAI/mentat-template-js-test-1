@@ -3,6 +3,7 @@ import cors from 'cors';
 import path from 'path';
 import { existsSync } from 'fs';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-require-imports
 const sudoku: any = require('sudoku');
 
 export const app = express();
@@ -36,7 +37,7 @@ app.get('/api/sudoku', (req: Request, res: Response) => {
       solution: displaySolution,
       difficulty: sudoku.ratepuzzle(puzzle),
     });
-  } catch (error) {
+  } catch {
     res.status(500).json({ error: 'Failed to generate sudoku puzzle' });
   }
 });

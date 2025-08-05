@@ -2,7 +2,8 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import path from 'path';
 import { existsSync } from 'fs';
-const sudoku = require('sudoku');
+ 
+const sudoku: any = require('sudoku');
 
 export const app = express();
 export const PORT = process.env.PORT || 5000;

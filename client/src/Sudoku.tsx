@@ -18,7 +18,7 @@ function Sudoku({ onError }: SudokuProps) {
 
   const fetchNewPuzzle = async () => {
     setLoading(true);
-    onError('');
+    onError(null);
 
     try {
       const response = await fetch('/api/sudoku');
@@ -48,7 +48,7 @@ function Sudoku({ onError }: SudokuProps) {
     if (!sudokuData) return;
 
     const newGrid = [...userGrid];
-    const numValue = value === '' ? null : parseInt(value);
+    const numValue = value === '' ? null : parseInt(value, 10);
 
     // Only allow changes to originally empty cells
     if (sudokuData.puzzle[index] === null) {

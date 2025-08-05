@@ -7,7 +7,7 @@ interface SudokuData {
 }
 
 interface SudokuProps {
-  onError: (error: string) => void;
+  onError: (error: string | null) => void;
 }
 
 function Sudoku({ onError }: SudokuProps) {

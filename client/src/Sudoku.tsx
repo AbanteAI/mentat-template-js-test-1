@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
 
 interface SudokuData {
   puzzle: (number | null)[];
@@ -7,7 +8,7 @@ interface SudokuData {
 }
 
 interface SudokuProps {
-  onError: (error: string | null) => void;
+  onError: Dispatch<SetStateAction<string | null>>;
 }
 
 function Sudoku({ onError }: SudokuProps) {

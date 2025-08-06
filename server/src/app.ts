@@ -32,10 +32,12 @@ app.get('/api/sudoku', (req: Request, res: Response) => {
     );
     const displaySolution = solution.map((cell: number) => cell + 1);
 
+    const difficulty = sudoku.ratepuzzle(puzzle);
+
     res.json({
       puzzle: displayPuzzle,
       solution: displaySolution,
-      difficulty: sudoku.ratepuzzle(puzzle),
+      difficulty: difficulty !== null && !isNaN(difficulty) ? difficulty : 0,
     });
   } catch {
     res.status(500).json({ error: 'Failed to generate sudoku puzzle' });

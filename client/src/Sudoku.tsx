@@ -106,7 +106,7 @@ function Sudoku({ onError }: SudokuProps) {
         <h2>Sudoku Puzzle</h2>
         {sudokuData && (
           <p className="difficulty">
-            Difficulty: {sudokuData.difficulty.toFixed(2)}
+            Difficulty: {sudokuData.difficulty?.toFixed(2) ?? 'Unknown'}
           </p>
         )}
       </div>

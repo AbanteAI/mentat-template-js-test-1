@@ -3,6 +3,9 @@ import cors from 'cors';
 import path from 'path';
 import { existsSync } from 'fs';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-require-imports
+const sudoku: any = require('sudoku');
+
 export const app = express();
 export const PORT = process.env.PORT || 5000;
 export const CLIENT_DIST_PATH = path.join(__dirname, '../../client/dist');
@@ -15,6 +18,30 @@ app.use(express.static(CLIENT_DIST_PATH)); // Serve static files from client/dis
 // Basic route
 app.get('/api', (req: Request, res: Response) => {
   res.json({ message: 'Welcome to the Mentat API!' });
+});
+
+// Sudoku puzzle generation endpoint
+app.get('/api/sudoku', (req: Request, res: Response) => {
+  try {
+    const puzzle = sudoku.makepuzzle();
+    const solution = sudoku.solvepuzzle(puzzle);
+
+    // Convert from 0-8 to 1-9 for display, keep null as null
+    const displayPuzzle = puzzle.map((cell: number | null) =>
+      cell === null ? null : cell + 1
+    );
+    const displaySolution = solution.map((cell: number) => cell + 1);
+
+    const difficulty = sudoku.ratepuzzle(puzzle);
+
+    res.json({
+      puzzle: displayPuzzle,
+      solution: displaySolution,
+      difficulty: difficulty !== null && !isNaN(difficulty) ? difficulty : 0,
+    });
+  } catch {
+    res.status(500).json({ error: 'Failed to generate sudoku puzzle' });
+  }
 });
 
 // Serve React app or fallback page

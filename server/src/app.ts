@@ -14,7 +14,7 @@ app.use(express.static(CLIENT_DIST_PATH)); // Serve static files from client/dis
 
 // Basic route
 app.get('/api', (req: Request, res: Response) => {
-  res.json({ message: 'Welcome to the Mentat API!' });
+  res.json({ message: 'Fresh horseradish sauce - made with love and tears!' });
 });
 
 // Serve React app or fallback page
@@ -45,10 +45,10 @@ app.get('*', (req: Request, res: Response) => {
           </style>
         </head>
         <body>
-          <h1>Mentat Template JS</h1>
+          <h1>Horseradish Sauce</h1>
           <p>Everything is working correctly.</p>
           <p>This route renders the built project from the <code>/dist</code> directory, but there's currently nothing there.</p>
-          <p>You can ask Mentat to build the project to see the React app here, or build it yourself with <code>npm run build</code>.</p>
+          <p>You can ask Mentat to build the project to see the horseradish sauce recipe here, or build it yourself with <code>npm run build</code>.</p>
           <p><a href="/api">Go to API endpoint</a></p>
         </body>
       </html>

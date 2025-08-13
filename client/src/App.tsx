@@ -65,36 +65,84 @@ function App() {
           gap: '24px',
         }}
       >
-        <h1>Mentat Template JS</h1>
+        <h1>Horseradish Sauce</h1>
 
-        {/* Tech stack */}
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            gap: '12px',
-            marginBottom: '24px',
-          }}
-        >
-          {[
-            ['Frontend', 'React, Vite, Vitest'],
-            ['Backend', 'Node.js, Express, Jest'],
-            ['Utilities', 'TypeScript, ESLint, Prettier'],
-          ].map(([title, techs]) => (
-            <div className="section" style={{ textAlign: 'center' }} key={title}>
-              <div
-                style={{
-                  fontWeight: '500',
-                  fontSize: '14px',
-                  color: '#1f2937',
-                  marginBottom: '4px',
-                }}
-              >
-                {title}
-              </div>
-              <div style={{ fontSize: '12px', color: '#6b7280' }}>{techs}</div>
-            </div>
-          ))}
+        {/* Recipe */}
+        <div className="section">
+          <h2
+            style={{
+              fontSize: '18px',
+              fontWeight: '600',
+              color: '#1f2937',
+              marginBottom: '16px',
+            }}
+          >
+            Basic Horseradish Sauce Recipe
+          </h2>
+
+          <div style={{ marginBottom: '20px' }}>
+            <h3
+              style={{
+                fontSize: '16px',
+                fontWeight: '500',
+                color: '#1f2937',
+                marginBottom: '8px',
+              }}
+            >
+              Ingredients:
+            </h3>
+            <ul style={{ paddingLeft: '20px', lineHeight: '1.6' }}>
+              <li>1/2 cup freshly grated horseradish root</li>
+              <li>1/4 cup white vinegar</li>
+              <li>1/4 cup sour cream</li>
+              <li>1 tablespoon mayonnaise</li>
+              <li>1/2 teaspoon salt</li>
+              <li>1/4 teaspoon sugar</li>
+              <li>Pinch of white pepper</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3
+              style={{
+                fontSize: '16px',
+                fontWeight: '500',
+                color: '#1f2937',
+                marginBottom: '8px',
+              }}
+            >
+              Instructions:
+            </h3>
+            <ol style={{ paddingLeft: '20px', lineHeight: '1.6' }}>
+              <li>
+                Peel and grate fresh horseradish root (work in a well-ventilated
+                area!)
+              </li>
+              <li>
+                In a bowl, combine grated horseradish with vinegar immediately
+                to preserve color
+              </li>
+              <li>Add sour cream, mayonnaise, salt, sugar, and white pepper</li>
+              <li>Mix well until smooth and creamy</li>
+              <li>Taste and adjust seasoning as needed</li>
+              <li>Refrigerate for at least 30 minutes before serving</li>
+              <li>Store covered in refrigerator for up to 1 week</li>
+            </ol>
+          </div>
+
+          <div
+            style={{
+              marginTop: '16px',
+              padding: '12px',
+              backgroundColor: '#fef3c7',
+              borderRadius: '6px',
+              fontSize: '14px',
+            }}
+          >
+            <strong>Tip:</strong> Fresh horseradish is very potent! Work quickly
+            and avoid inhaling the fumes. The sauce will mellow after
+            refrigeration.
+          </div>
         </div>
 
         {/* Server message */}

@@ -36,7 +36,11 @@ function App() {
   return (
     <div
       style={{
-        backgroundColor: '#fafafa',
+        backgroundImage:
+          'url(https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -46,10 +50,23 @@ function App() {
         padding: '20px',
         fontFamily:
           '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+        position: 'relative',
       }}
     >
+      {/* Dark overlay for better text readability */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.4)',
+          zIndex: 1,
+        }}
+      />
       {/* Logo */}
-      <div>
+      <div style={{ position: 'relative', zIndex: 2 }}>
         <a href="https://mentat.ai" target="_blank">
           <img src={mentatLogo} alt="Mentat Logo" />
         </a>
@@ -63,6 +80,10 @@ function App() {
           display: 'flex',
           flexDirection: 'column',
           gap: '24px',
+          position: 'relative',
+          zIndex: 2,
+          backgroundColor: 'rgba(255, 255, 255, 0.95)',
+          backdropFilter: 'blur(10px)',
         }}
       >
         <h1>Mentat Template JS</h1>
@@ -81,7 +102,11 @@ function App() {
             ['Backend', 'Node.js, Express, Jest'],
             ['Utilities', 'TypeScript, ESLint, Prettier'],
           ].map(([title, techs]) => (
-            <div className="section" style={{ textAlign: 'center' }} key={title}>
+            <div
+              className="section"
+              style={{ textAlign: 'center' }}
+              key={title}
+            >
               <div
                 style={{
                   fontWeight: '500',
